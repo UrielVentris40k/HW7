@@ -1,0 +1,28 @@
+int m = 3;
+int n = 4;
+int count = m * n;
+int checker = 0;
+decimal[,] array = new decimal [m, n];
+int [] ArrayCount = new int [count];
+Console.WriteLine("Введите номер ячейки матрицы для вывода содержащегося в ней числа:");
+int number = Convert.ToInt32(Console.ReadLine());
+Random rnd = new Random();
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        array[i,j] = rnd.Next(0,9);
+        for (int k = 0; k < count; k++)
+        {
+            ArrayCount[k] = checker++;
+            if (number == ArrayCount[k])
+            {
+                Console.WriteLine("Ваше число: " + array[i,j]);
+            }
+            else if (number > array.Length)
+            {
+                Console.WriteLine("Такого номера ячейки нет!");
+            }
+        }
+    }
+}
