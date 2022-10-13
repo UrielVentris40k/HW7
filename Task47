@@ -1,0 +1,23 @@
+Console.WriteLine("Введите число строк:");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите число столбцов:");
+int n = Convert.ToInt32(Console.ReadLine());
+decimal[,] array = new decimal [m, n];
+Random rnd = new Random();
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        // array[i, j] = Convert.ToDecimal(rnd.NextDouble() * rnd.Next (-999, 999));
+        array[i,j] = Math.Truncate(Convert.ToDecimal(rnd.NextDouble() * rnd.Next (-999, 999)) * 10m) / 10m;
+        if (i == (n - 1))
+        {
+            Console.Write(array[i, j] + "\t" + "\n");
+        }
+        else
+        {
+            Console.Write(array[i, j] + "\t");
+        }
+        
+    }
+}
