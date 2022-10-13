@@ -1,0 +1,40 @@
+int m = 3;
+int n = 4;
+decimal average = 0;
+decimal[,] array = new decimal [m, n];
+decimal[] AverageArray = new decimal[n];
+Random rnd = new Random();
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        array[i,j] = Math.Truncate(Convert.ToDecimal(rnd.Next(0,9) + rnd.NextDouble() * rnd.Next (0, 9)) * 10m) / 10m;
+
+    }
+}
+
+decimal Method (int l)
+{
+    int m = 3;
+    decimal sum = 0;
+    for (int k = 0; k < m; k++)
+    {
+        sum = sum + array[l,k];
+    }
+    return sum;
+    // Console.WriteLine(sum);
+}
+
+for (int l = 0; l < n; l++)
+{
+    for (int x = 0; x < n; x++)
+    {
+        // Method(x);
+        average = Method(x);
+        // average = Convert.ToDecimal(Console.ReadLine(Method(x)));
+        AverageArray[x] = average / n;
+    }
+    
+}
+
+Console.WriteLine("Среднее арифметическое столбцов: " + string.Join(",", AverageArray));
